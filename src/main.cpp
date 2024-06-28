@@ -1,5 +1,3 @@
-// main.cpp
-
 #include <iostream>
 #include <functional>
 #include "../includes/differensiasiNumerik.h"

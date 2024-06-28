@@ -1,10 +1,16 @@
 #include <iostream>
 #include <functional>
 #include "../includes/differensiasiNumerik.h"
+#include "../includes/integrasiNumerik.h"
 
 using namespace std;
 
 int main() {
+
+
+
+
+
     double x, h;
     cout << "Masukkan nilai x: ";
     cin >> x;

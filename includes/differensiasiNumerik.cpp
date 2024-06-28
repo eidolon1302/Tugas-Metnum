@@ -1,23 +1,23 @@
 #include "differensiasiNumerik.h"
-#include <cmath>
-#include <functional>
+#include <iostream>
 
-// Fungsi untuk diferensiasi menggunakan metode selisih maju
-double selisihMaju(std::function<double(double)> f, double x, double h) {
+double forward_difference(double (*f)(double), double x, double h) {
     return (f(x + h) - f(x)) / h;
 }
 
-// Fungsi untuk diferensiasi menggunakan metode selisih mundur
-double selisihMundur(std::function<double(double)> f, double x, double h) {
-    return (f(x) - f(x - h)) / h;
-}
-
-// fungsi untuk diferensiasi menggunakan metode selisih tengahan
-double selisihtengahan(std::function<double(double)> f, double x, double h) {
+double central_difference(double (*f)(double), double x, double h) {
     return (f(x + h) - f(x - h)) / (2 * h);
 }
 
-// Contoh fungsi f(x)
-double fungsi(double x) {
-    return sin(x);  // Contoh fungsi, f(x) = sin(x)
+void run_differensiasi_numerik() {
+    double (*f)(double) = [](double x) { return x * x; }; // Contoh fungsi f(x) = x^2
+    double x, h;
+
+    std::cout << "Masukkan nilai x: ";
+    std::cin >> x;
+    std::cout << "Masukkan nilai h: ";
+    std::cin >> h;
+
+    std::cout << "Forward Difference: " << forward_difference(f, x, h) << std::endl;
+    std::cout << "Central Difference: " << central_difference(f, x, h) << std::endl;
 }

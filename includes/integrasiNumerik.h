@@ -1,18 +1,8 @@
 #ifndef INTEGRASINUMERIK_H
 #define INTEGRASINUMERIK_H
 
-#include <functional>
-
-class IntegrasiNumerik {
-public:
-    IntegrasiNumerik(std::function<double(double)> func, double a, double b, int n);
-    double integrate();
-    
-private:
-    std::function<double(double)> func;
-    double a;
-    double b;
-    int n;
-};
+double trapezoidal_rule(double (*f)(double), double a, double b, int n);
+double simpson_rule(double (*f)(double), double a, double b, int n);
+void run_integrasi_numerik();
 
 #endif
